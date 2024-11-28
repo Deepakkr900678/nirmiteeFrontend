@@ -60,7 +60,7 @@ function App() {
     if (window.confirm("Would you like to delete this event?")) {
       try {
         await deleteEvent(event.id);
-        setEvents(prevEvents => 
+        setEvents(prevEvents =>
           prevEvents.filter(e => e.id !== event.id)
         );
       } catch (error) {
@@ -85,7 +85,7 @@ function App() {
           start: new Date(newEvent.start),
           end: new Date(newEvent.end)
         };
-        
+
         const createdEvent = await addEvent(eventToAdd);
         setEvents(prev => [...prev, {
           ...createdEvent,
