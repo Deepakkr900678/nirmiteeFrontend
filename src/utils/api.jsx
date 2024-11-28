@@ -1,8 +1,9 @@
 // const BASE_URL = 'http://localhost:4500/api/v1/event/';
+// const DEPLOY_URL = 'https://nirmiteebackend.onrender.com';
 
 export const fetchEvents = async () => {
   try {
-    const response = await fetch(`http://localhost:4500/api/v1/event/getAllEvents`);
+    const response = await fetch(`https://nirmiteebackend.onrender.com/api/v1/event/getAllEvents`);
     const data = await response.json();
     return data.map(event => ({
       ...event,
@@ -32,7 +33,7 @@ export const updateEvent = async (event) => {
 
     console.log('Sending update request:', { id: eventId, ...eventForApi });
 
-    const response = await fetch(`${`http://localhost:4500/api/v1/event/updateEvent`}/${eventId}`, {
+    const response = await fetch(`${`https://nirmiteebackend.onrender.com/api/v1/event/updateEvent`}/${eventId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -59,7 +60,7 @@ export const updateEvent = async (event) => {
 
 export const addEvent = async (event) => {
   try {
-    const response = await fetch(`http://localhost:4500/api/v1/event/createEvent`, {
+    const response = await fetch(`https://nirmiteebackend.onrender.com/api/v1/event/createEvent`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -84,7 +85,7 @@ export const addEvent = async (event) => {
 
 export const deleteEvent = async (eventId) => {
   try {
-    await fetch(`${`http://localhost:4500/api/v1/event/deleteEvent`}/${eventId}`, {
+    await fetch(`${`https://nirmiteebackend.onrender.com/api/v1/event/deleteEvent`}/${eventId}`, {
       method: 'DELETE',
     });
   } catch (error) {
